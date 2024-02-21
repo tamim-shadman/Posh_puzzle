@@ -1,11 +1,13 @@
 import logo from 'react'
 import {BrowserRouter,Routes,Route} from "react-router-dom";
+import {Login,SignupPage} from "./Router.js";
 
 const App = () =>  {
   return (
     <BrowserRouter>
     <Routes>
       <Route path='/login' element={<Login />} />
+      <Route path='/sign-up' element={<SignupPage />} />
     </Routes>
     </BrowserRouter>
   );
