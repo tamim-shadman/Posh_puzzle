@@ -1,0 +1,71 @@
+name: Posh Puzzle CI / CD Verification Pipeline
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  backend-test:
+    name: Backend API Suite (${{ matrix.node-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 18.x, 20.x ]
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+          cache-dependency-path: backend/package-lock.json
+
+      - name: Install Backend Dependencies
+        working-directory: backend
+        run: npm ci
+
+      - name: Execute Backend Test Suite
+        working-directory: backend
+        env:
+          NODE_ENV: test
+          JWT_SECRET: ci_test_secret_key_posh_puzzle
+        run: npm test
+
+  frontend-test-and-build:
+    name: Frontend Test & Build (${{ matrix.node-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 18.x, 20.x ]
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install Frontend Dependencies
+        working-directory: frontend
+        run: npm ci
+
+      - name: Execute Frontend Unit & Component Tests
+        working-directory: frontend
+        env:
+          CI: true
+        run: npm test -- --watchAll=false
+
+      - name: Compile Optimized Production Build
+        working-directory: frontend
+        env:
+          CI: false
+        run: npm run build
