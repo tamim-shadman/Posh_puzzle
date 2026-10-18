@@ -1,14 +1,3 @@
-import React from 'react'
-
-export const Login = () => {
-  return (
-    <div className='min-h-sreen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8'>
-        <div className='sm:mx-auto sm:w-full sm:max-w-md'>
-<h2 className='mt-6 text-center text-3xl font-extrabold text-gray-900'>
-Login your account
-</h2>
-        </div>
-    </div>
-  )
-}
-export default Login 
+import LoginPage from '../../pages/Login';
+export const Login = LoginPage;
+export default LoginPage;

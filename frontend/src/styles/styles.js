@@ -1,18 +1,19 @@
 const styles = {
-custom_container: "w-11/12 hidden sm:block",
-heading: 'test-[27px] text-center md:text-start font-[600] font-Roboto pb-[20px]',
-section:'w-11/12 mx-auto',
-productTitle:'text-[25px] font-[600] font-Roboto text-[#333]',
-productDiscuntPrice:"font-bold text-[18px] text-[#333] font-Roboto",
-price:"font-[500] text-[16px] text[#d55b45] pl-3 mt-[-4px] line-through",
-shop_name:"pt-3 text-[-15px] text-blue-400 pb-3",
-active_indicator: "absolute bottom-[-27%] left-0 h-[3px] w-full bg-[crimson]",
-button:'w-[150px] bg-black h-[50px] my-3 flex items-center justify-center rounded-x1 cursor-pointer',
-cart_button:"px-[20px] h-[38px] rounded-[20px] bg-[#f63b60] flex items-center justify-center cursor-pointer",
-cart_button_text:"text-[#fff] text-[16px] font-[600]",
-input:"w-full border p-1 rounded-[5px]",
-activeStatus:"w-[10px] h-[10px] rounded-full absolute top-0 right-1 bg-[#40d132]",
-noramlFlex:" flex items-center"
+  custom_container: "w-11/12 max-w-7xl mx-auto",
+  heading: "text-2xl sm:text-3xl font-extrabold font-display pb-5 text-slate-900 dark:text-white",
+  section: "w-11/12 max-w-7xl mx-auto py-8",
+  productTitle: "text-lg font-bold font-display text-slate-900 dark:text-white",
+  productDiscountPrice: "font-black text-lg text-slate-900 dark:text-white font-display",
+  price: "font-medium text-sm text-rose-500 line-through pl-2",
+  shop_name: "pt-2 text-xs font-semibold text-brand-600 dark:text-brand-400 pb-2 flex items-center gap-1",
+  active_indicator: "absolute bottom-0 left-0 h-0.5 w-full bg-brand-600 rounded-full",
+  button: "px-6 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-xl cursor-pointer transition-all shadow-sm active:scale-95",
+  cart_button: "px-5 h-10 rounded-xl bg-brand-600 hover:bg-brand-700 text-white flex items-center justify-center cursor-pointer font-medium shadow-sm active:scale-95",
+  cart_button_text: "text-white text-sm font-semibold",
+  input: "w-full border border-slate-200 dark:border-slate-700 p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 text-xs text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-500",
+  activeStatus: "w-2.5 h-2.5 rounded-full absolute top-1 right-1 bg-emerald-500 ring-2 ring-white dark:ring-slate-900",
+  normalFlex: "flex items-center",
+  noramlFlex: "flex items-center", // backwards compatibility
 };
 
 export default styles;
